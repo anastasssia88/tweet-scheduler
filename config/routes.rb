@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   # GET /about
   get "about", to: "about#index"
   # this will look for about_controller file inside of /app/controllers folder 
+
+  # GET /
+  root to: "main#index"
 end
