@@ -5,10 +5,8 @@ Rails.application.routes.draw do
   # root "articles#index"
 
 
-  # GET /about
-  get "about", to: "about#index"
+  get "about-us", to: "about#index", as: :about
   # this will look for about_controller file inside of /app/controllers folder 
 
-  # GET /
   root to: "main#index"
 end
