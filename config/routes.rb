@@ -5,8 +5,12 @@ Rails.application.routes.draw do
   # root "articles#index"
 
 
+  root to: "main#index"
+
   get "about-us", to: "about#index", as: :about
   # this will look for about_controller file inside of /app/controllers folder 
 
-  root to: "main#index"
+  get "sign-up", to: "registrations#new"
+  post "sign-up", to: "registrations#create"
+
 end
