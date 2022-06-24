@@ -4,15 +4,11 @@ class RegistrationsController < ApplicationController
     end
 
     def create
-        # params: 
-        # {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test3@mail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
-        # params[:user]: 
-        # "user"=>{"email"=>"test3@mail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
         @user = User.new(user_params)
         if @user.save
+            session[:user_id] = @user.id
             redirect_to root_path, notice: "Successfully created an account"
         else 
-            # flash[:alert] = "Something was wrong"
             render :new
         end
     end
